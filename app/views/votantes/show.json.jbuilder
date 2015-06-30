@@ -1,0 +1,1 @@
+json.extract! @votante, :id, :nombres, :apellidos, :cedula, :direccion, :barrio, :comuna, :puesto, :mesa, :celular, :fijo, :email, :estadoCivil, :hijos, :fechaNacimiento, :profesion, :hobby, :created_at, :updated_at

@@ -1,0 +1,113 @@
+<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="panel-title panel-search">
+      <div class="row">
+        <div class="col-md-3">
+          <h3>Lista de votantes</h3>
+        </div>
+        <div class="col-md-7">
+          <div class="pull-right">
+            <%= form_tag votantes_path, :method => 'get' do %>
+            <div class="row">
+              <div class="col-md-10">
+                <div class="form-group">
+                  <%= text_field_tag :search, nil , :class => 'form-control control-x', placeholder: 'Ingresa una cedula o un nombre' %>
+                </div>
+              </div>
+              <div class="col-md-2 pull">
+                <%= submit_tag 'Buscar', :name => nil, class: 'btn btn-primary' %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Cedula</th>
+          <th>Direccion</th>
+          <th>Puesto</th>
+          <th>Mesa</th>
+          <th>Celular</th>
+          <th>Email</th>
+          <th>Fechanacimiento</th>
+          <th>Profesion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @votantes.each do |votante| %>
+        <tr>
+          <td><%= votante.nombres %></td>
+          <td><%= votante.apellidos %></td>
+          <td><%= votante.cedula %></td>
+          <td><%= votante.direccion %></td>
+          <td><%= votante.puesto %></td>
+          <td><%= votante.mesa %></td>
+          <td><%= votante.celular %></td>
+          <td><%= votante.email %></td>
+          <td><%= votante.fechaNacimiento %></td>
+          <td><%= votante.profesion %></td>
+          <td><%= link_to 'Ver', votante %></td>
+          <td><%= link_to 'Editar', edit_votante_path(votante) %></td>
+          <td><%= link_to 'Eliminar', votante, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= button_to 'Nuevo votante', new_votante_path, class: "btn btn-primary", method: :get %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h3>Crear Seguimiento</h3>
+        </div>
+      </div>
+      <div class="panel-body">
+        <%= form_tag(controller: "votantes", action:"follow", method: "get", class: 'form-inline')  do %>
+        <div class="col-md-5">
+          <%= text_field_tag :followerId, nil, class: 'form-control', placeholder: 'Cedula del seguidor' %>
+        </div>             
+        <div class="col-md-5">
+          <%= text_field_tag :followedId, nil, class: 'form-control', placeholder: 'Cedula del seguido' %>
+        </div>
+        <div class="col-md-2">
+          <%= submit_tag 'Aceptar', :name => nil, class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h3>Eliminar Seguimiento</h3>
+        </div>
+      </div>
+      <div class="panel-body">
+        <%= form_tag(controller: "votantes", action:"unfollow", method: "get", class: 'form-inline')  do %>
+        <div class="col-md-5">
+          <%= text_field_tag :followerId, nil, class: 'form-control', placeholder: 'Cedula del seguidor' %>
+        </div>             
+        <div class="col-md-5">
+          <%= text_field_tag :followedId, nil, class: 'form-control', placeholder: 'Cedula del seguido' %>
+        </div>
+        <div class="col-md-2">
+          <%= submit_tag 'Aceptar', :name => nil, class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

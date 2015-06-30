@@ -1,0 +1,133 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+         <h2>
+          <%= button_to 'Atras', votantes_path, class: 'btn btn-primary pull-right', method: :get %>
+          <%= @votante.nombres %>
+          <%= @votante.apellidos %>
+         </h2>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Cedula:</h4>
+            <%= @votante.cedula %>
+
+            <h4>Direccion:</h4>
+            <%= @votante.direccion %>
+
+            <h4>Barrio:</h4>
+            <%= @votante.barrio %>
+
+            <h4>Comuna:</h4>
+            <%= @votante.comuna %>
+            <h4>Puesto:</h4>
+            <%= @votante.puesto %>
+
+            <h4>Mesa:</h4>
+            <%= @votante.mesa %>
+
+            <h4>Celular:</h4>
+            <%= @votante.celular %>
+          </div>
+          <div class="col-md-6">
+
+            <h4>Fijo:</h4>
+            <%= @votante.fijo %>
+
+            <h4>Email:</h4>
+            <%= @votante.email %>
+
+            <h4>Estadocivil:</h4>
+            <%= @votante.estadoCivil %>
+
+            <h4>Hijos:</h4>
+            <%= @votante.hijos %>
+
+            <h4>Fechanacimiento:</h4>
+            <%= @votante.fechaNacimiento %>
+
+            <h4>Profesion:</h4>
+            <%= @votante.profesion %>
+
+            <h4>Hobby:</h4>
+            <%= @votante.hobby %>
+          </div>
+        </div>
+        <%= button_to 'Editar', edit_votante_path(@votante), class: 'btn btn-primary', method: :get %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h2>Siguiendo:
+                <%= @votante.follow_count %>
+              </h2>
+            </div>
+          </div>
+          <div class="panel-body">
+          <% if @votante.follow_count != 0 %>
+            <table class="table table-hover">
+              <thead>
+               <tr>
+                  <th>Nombres</th>
+                  <th>Apellidos</th>
+                  <th>Cedula</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @votante.all_following.each do | seguidor |%>
+                  <tr>
+                    <td><%= seguidor.nombres %></td>
+                    <td><%= seguidor.apellidos %></td>
+                    <td><%= seguidor.cedula %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">
+            <h2>Seguidores: 
+              <%= @votante.followers_count %>
+            </h2>
+          </div>
+        </div>
+        <div class="panel-body">
+          <% if @votante.followers_count != 0 %>
+            <table class="table table-hover">
+              <thead>
+               <tr>
+                  <th>Nombres</th>
+                  <th>Apellidos</th>
+                  <th>Cedula</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @votante.followers.each do | siguiendo |%>
+                  <tr>
+                    <td><%= siguiendo.nombres%></td>
+                    <td><%= siguiendo.apellidos%></td>
+                    <td><%= siguiendo.cedula%></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

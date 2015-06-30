@@ -7,8 +7,8 @@ class Votante < ActiveRecord::Base
   validates :direccion, presence: true
   validates :barrio, presence: true
   validates :puesto, presence: true
-  validates :mesa, presence: true
-  validates :celular, presence: true
+  validates :mesa, presence: true, numericality: true
+  validates :celular, presence: true, numericality: true
 
   def self.search(search)
     where("cedula LIKE ?", "%#{search}%")

@@ -8,6 +8,23 @@
 </head>
 <body>
     <div class="container">
+        <% flash.each do |type, msg| %>
+          <% if type == 'alert' %>
+            <div class="alert alert-info alert-dismissible" role = "alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <li>
+                <%= msg %>
+              </li>
+            </div>
+          <% elsif type == 'notice' %>
+            <div class="alert alert-info alert-dismissible" role = "alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <li>
+                <%= msg %>
+              </li>
+            </div>
+          <% end %>
+        <% end %>
         <div class="row">
             <div class="col-md-12">
                 <%= yield %>

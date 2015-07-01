@@ -3,7 +3,7 @@ class CreateVotantes < ActiveRecord::Migration
     create_table :votantes do |t|
       t.string :nombres
       t.string :apellidos
-      t.integer :cedula
+      t.string :cedula
       t.string :direccion
       t.string :barrio
       t.string :comuna

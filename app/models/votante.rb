@@ -9,10 +9,13 @@ class Votante < ActiveRecord::Base
   validates :puesto, presence: true
   validates :mesa, presence: true, numericality: true
   validates :celular, presence: true, numericality: true
+  validates :email, email_format: { message: 'invalido' }
+  validates :hijos, numericality: true
+  validates :fijo, numericality: true
 
   def self.search(search)
-    where("cedula LIKE ?", "%#{search}%")
-    where("apellidos LIKE ?", "%#{search}%")
-    where("nombres LIKE ?", "%#{search}%")
+    # where("cedula LIKE ?", "%#{search}%")
+    # where("apellidos LIKE ?", "%#{search}%")
+    where("nombres LIKE ?", "%#{nombres}%")
   end
 end

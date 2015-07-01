@@ -27,6 +27,8 @@ gem 'bootstrap-sass', '~> 3.3.3'
 #
 gem 'acts_as_follower', '~> 0.2.1'
 #
+gem 'validates_email_format_of', '~> 1.6.2'
+#
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

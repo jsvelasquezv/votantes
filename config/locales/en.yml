@@ -20,4 +20,35 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+ activerecord:
+  errors:
+   models:
+    votante:
+     attributes:
+      nombres:
+       blank: 'esta en blanco'
+      apellidos:
+       blank: 'esta en blanco'
+      cedula:
+       blank: 'esta en blanco'
+       not_a_number: 'debe ser numerico'
+      direccion:
+       blank: 'esta en blanco'
+      barrio:
+       blank: 'esta en blanco'
+      puesto:
+       blank: 'esta en blanco'
+      mesa:
+       blank: 'esta en blanco'
+       not_a_number: 'debe ser numerico'
+      celular:
+       blank: 'esta en blanco'
+       not_a_number: 'debe ser numerico'
+      fijo:
+       not_a_number: 'debe ser numerico'
+      hijos:
+       not_a_number: 'debe ser numerico'
+      email:
+       blank: 'esta en blanco'
+
+

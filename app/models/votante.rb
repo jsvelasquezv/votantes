@@ -16,6 +16,6 @@ class Votante < ActiveRecord::Base
   def self.search(search)
     # where("cedula LIKE ?", "%#{search}%")
     # where("apellidos LIKE ?", "%#{search}%")
-    where("nombres LIKE ?", "%#{nombres}%")
+    where("nombres ILIKE ?", "%#{nombres}%")
   end
 end

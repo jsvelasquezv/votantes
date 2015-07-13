@@ -60,7 +60,7 @@ class VotantesController < ApplicationController
   def destroy
     @votante.destroy
     respond_to do |format|
-      format.html { redirect_to votantes_url, notice: 'El votante se ha eliminado exitosamenteed.' }
+      format.html { redirect_to votantes_url, notice: 'El votante se ha eliminado exitosamented.' }
       format.json { head :no_content }
     end
   end

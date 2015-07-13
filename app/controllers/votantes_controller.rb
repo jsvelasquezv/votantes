@@ -4,6 +4,7 @@ class VotantesController < ApplicationController
   # GET /votantes
   # GET /votantes.json
   def index
+    @count = Votante.count
     if params[:search]
       @votantes = Votante.search(params[:search])
     else

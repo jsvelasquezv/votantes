@@ -32,7 +32,7 @@ class VotantesController < ApplicationController
 
     respond_to do |format|
       if @votante.save
-        format.html { redirect_to @votante, notice: 'Votante was successfully created.' }
+        format.html { redirect_to @votante, notice: 'El votante se ha creado exitosamente.' }
         format.json { render :show, status: :created, location: @votante }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class VotantesController < ApplicationController
   def update
     respond_to do |format|
       if @votante.update(votante_params)
-        format.html { redirect_to @votante, notice: 'Votante was successfully updated.' }
+        format.html { redirect_to @votante, notice: 'El votante se ha actualizado exitosamente.' }
         format.json { render :show, status: :ok, location: @votante }
       else
         format.html { render :edit }
@@ -60,7 +60,7 @@ class VotantesController < ApplicationController
   def destroy
     @votante.destroy
     respond_to do |format|
-      format.html { redirect_to votantes_url, notice: 'Votante was successfully destroyed.' }
+      format.html { redirect_to votantes_url, notice: 'El votante se ha eliminado exitosamenteed.' }
       format.json { head :no_content }
     end
   end
